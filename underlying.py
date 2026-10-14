@@ -34,4 +34,13 @@ class asset():
     self._spot = S.mean()
 
 test = asset(100,0.3,0.05,0.02)
+Time = np.array(i for i in range(1000))
+Y = np.array()
+Y[0]=test.get_spot()
+for i in range(1,1000):
+  test.update(i)
+  Y[i]=test.get_spot()
+plt.plot(Time, Y)
+plt.grid()
+plt.show()
 
