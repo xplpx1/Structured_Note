@@ -1,5 +1,5 @@
 import numpy as np
-import matplotlib as 
+import matplotlib as plt
 
 class asset():
   def __init__(self, spot_init: float, vol : float, risk-free-rate : float, dividend_yield : float) -> None:
@@ -33,4 +33,5 @@ class asset():
     S = self._spot_init*np.exp( (self._rf_rate-self._dividend_yield - self._vol**2/2) * T + self._vol*np*sqrt(T)*Z)
     self._spot = S.mean()
 
+test = asset(100,0.3,0.05,0.02)
 
