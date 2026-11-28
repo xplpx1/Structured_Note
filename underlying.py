@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 
 @dataclass(frozen=True)
 class asset():
-    spot: float
+    spot: array[float]
     vol: float
     risk_free_rate: float
     dividend_yield: float
