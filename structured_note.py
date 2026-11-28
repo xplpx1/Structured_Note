@@ -9,21 +9,18 @@ class AutocallNote:
     coupon_rate: float       # per period, on notional
 
 @property
-def check_coupon(self, ti : int) -> array[bool]:
+def check_coupon(self) -> array[bool]:
   if self.underlying.spot[ti]>self.coupon_trigger:
       return True
   else:
     return False
 
 @property
-def check_autocall(self, ti : int) -> bool:
-  if self.underlying.spot[ti]<self.autocall_trigger:
-      return False
-    else:
-        return True
+def check_autocall(self) -> array[bool]:
+  for i in range(len
 
 @property
-def check_knock_in(self, ti : int) -> bool:
+def check_knock_in(self) -> array[bool]:
   if self.underlying.spot[ti]<self.autocall_trigger:
       return False
     else:
