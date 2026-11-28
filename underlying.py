@@ -11,9 +11,11 @@ class asset():
 #  def modify_spot(self, new_spot : float) -> None:
  #   self._spot = new_spot
 
-  def update(self, times: np.array,) -> np.ndarray:
-    Z = np.random.standard_normal()
-    S = self._spot*np.exp( (self._rf_rate-self._dividend_yield - self._vol**2/2) * dT + self._vol*np.sqrt(dT)*Z)
-    self._spot = S
+def simulate(self, times, n_paths, rng) -> np.ndarray: 
+    '''times is a list of times when we update the spot price of the underlying.'''
+        dt = np.diff(np.concatenate([[0.0], np.asarray(times, dtype=float)])) #The differences in time between observation dates. !dimensional array
+        drift = (self.risk_free_rate - self.dividend_yield - 0.5 * self.vol**2) * dt
+        diff = self.vol * np.sqrt(dt) * rng.standard_normal((n_paths, len(dt)))
+        return self.spot * np.exp(np.cumsum(drift + diff, axis=1))
     
 
