@@ -9,7 +9,7 @@ class AutocallNote:
     coupon_rate: float       # per period, on notional
 
 @property
-def check_coupon(self, ti : int) -> bool:
+def check_coupon(self, ti : int) -> array[bool]:
   if self.underlying.spot[ti]>self.coupon_trigger:
       return True
   else:
