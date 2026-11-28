@@ -10,5 +10,12 @@ class AutocallNote:
 
 @property
 def check_coupon(self, ti : int) -> bool:
-  if self.underlying.
-    
+  if self.underlying.spot>self.coupon_trigger:
+      return True
+    return False
+
+@property
+def check_autocall(self, ti : int) -> bool:
+  if self.underlying.spot>self.coupon_trigger:
+      return True
+    return False
